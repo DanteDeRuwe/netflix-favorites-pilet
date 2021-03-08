@@ -1,15 +1,11 @@
 import * as React from 'react';
 import { PiletApi } from 'piral-tryout';
+import { Link } from 'react-router-dom';
+import FavoriteToggle from './components/FavoriteToggle';
+import './style.scss';
 
 export function setup(app: PiletApi) {
-  app.showNotification('Hello from Piral!', {
-    autoClose: 2000,
-  });
-  app.registerMenu(() =>
-    <a href="https://docs.piral.io" target="_blank">Documentation</a>
-  );
-  app.registerTile(() => <div>Welcome to Piral!</div>, {
-    initialColumns: 2,
-    initialRows: 1,
-  });
+  app.registerMenu('Favorites', () => <Link to="/favorites">Favorites</Link>);
+  //app.registerPage('/favorites', Favorites);
+  app.registerExtension('ListToggle', FavoriteToggle);
 }
