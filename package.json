@@ -40,7 +40,8 @@
   "scripts": {
     "start": "pilet debug",
     "build": "pilet build",
-    "upgrade": "pilet upgrade"
+    "upgrade": "pilet upgrade",
+    "debug": "pilet debug --feed https://feed.piral.cloud/api/v1/pilet/dante-feed"
   },
   "main": "dist/index.js",
   "files": [
