@@ -7,5 +7,5 @@ import './style.scss';
 export function setup(app: PiletApi) {
   app.registerMenu('Favorites', () => <Link to="/favorites">Favorites</Link>);
   //app.registerPage('/favorites', Favorites);
-  app.registerExtension('ListToggle', FavoriteToggle);
+  app.registerExtension('ListToggle', props => <FavoriteToggle {...props.params}></FavoriteToggle>);
 }
