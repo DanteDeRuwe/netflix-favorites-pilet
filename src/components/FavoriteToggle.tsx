@@ -9,6 +9,7 @@ export interface FavoriteToggleProps {
   score: string;
   overview: string;
   movieId: string;
+  media_type: string;
 }
 
 const FavoriteToggle: React.FC<FavoriteToggleProps> = props => {
@@ -19,7 +20,7 @@ const FavoriteToggle: React.FC<FavoriteToggleProps> = props => {
     delete favs[props.movieId];
 
     if (props.movieId in favorites) setFavorites(favs);
-    else setFavorites({ ...favorites, [props.movieId]: true });
+    else setFavorites({ ...favorites, [props.movieId]: props.media_type });
   }, [favorites]);
 
   return (
