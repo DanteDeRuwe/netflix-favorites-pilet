@@ -1,6 +1,6 @@
 {
   "name": "favorites",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "keywords": [
     "pilet"
@@ -20,7 +20,7 @@
     "path-to-regexp": "1.8.0",
     "piral-cli": "^1.0.0-pre.2137",
     "piral-cli-webpack": "^1.0.0-pre.2137",
-    "piral-tryout": "1.1.17",
+    "piral-tryout": "1.1.19",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-router": "5.2.0",
