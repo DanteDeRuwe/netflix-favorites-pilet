@@ -1,16 +1,8 @@
 import * as React from 'react';
 import createPersistedState from 'use-persisted-state';
+import { FavoriteToggleProps } from '../models/proptypes';
 
 const useFavoritesState = createPersistedState('favorites');
-
-export interface FavoriteToggleProps {
-  backdrop: string;
-  title: string;
-  score: string;
-  overview: string;
-  movieId: string;
-  media_type: string;
-}
 
 const FavoriteToggle: React.FC<FavoriteToggleProps> = props => {
   const [favorites, setFavorites] = useFavoritesState({});

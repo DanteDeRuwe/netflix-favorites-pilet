@@ -3,8 +3,8 @@ import { PiletApi } from 'piral-tryout';
 import { Link } from 'react-router-dom';
 import FavoriteToggle from './components/FavoriteToggle';
 import './style.scss';
-import { MovieTileProps } from './models/MovieTileProps';
 import Favorites from './components/Favorites';
+import { MovieTileProps } from './models/proptypes';
 
 export function setup(app: PiletApi) {
   app.registerMenu('Favorites', () => <Link to="/favorites">Favorites</Link>);

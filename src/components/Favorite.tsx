@@ -1,16 +1,11 @@
 import * as React from 'react';
-import { MovieTileProps } from '../models/MovieTileProps';
-
-interface FavoriteProps {
-  id: string;
-  media_type: 'tv' | 'movie';
-  MovieTile: React.FC<MovieTileProps>;
-}
+import { FavoriteProps, MovieTileProps } from '../models/proptypes';
+import { ApiDataEntry } from '../models/types';
 
 const apiKey = '87dfa1c669eea853da609d4968d294be';
 
 const Favorite: React.FC<FavoriteProps> = props => {
-  const [data, setData] = React.useState<any>({});
+  const [data, setData] = React.useState<ApiDataEntry>(null);
 
   const loadContent = () => {
     let requestUrl = `https://api.themoviedb.org/3/${props.media_type}/${props.id}?api_key=${apiKey}`;
@@ -25,20 +20,23 @@ const Favorite: React.FC<FavoriteProps> = props => {
     loadContent();
   }, [props.id]);
 
-  let backDrop = 'http://image.tmdb.org/t/p/original' + data.backdrop_path;
-  let name = data.name ? data.name : data.original_title;
+  if (!data) return <></>;
 
-  return (
-    <props.MovieTile
-      key={props.id}
-      media_type={props.media_type}
-      movieId={props.id}
-      title={name}
-      score={data.vote_average}
-      overview={data.overview}
-      backdrop={backDrop}
-    ></props.MovieTile>
-  );
+  const movieTileProps: MovieTileProps = createMovieTileProps(data, props);
+  return <props.MovieTile key={props.id} {...movieTileProps}></props.MovieTile>;
 };
 
 export default Favorite;
+
+/*
+Helpers
+*/
+
+const createMovieTileProps = (title: ApiDataEntry, props: FavoriteProps) => ({
+  media_type: props.media_type,
+  movieId: title.id,
+  title: title.name || title.original_title,
+  score: title.vote_average,
+  overview: title.overview,
+  backdrop: `http://image.tmdb.org/t/p/original${title.backdrop_path}`,
+});
