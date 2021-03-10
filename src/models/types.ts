@@ -10,3 +10,18 @@ export interface ApiDataEntry {
     overview: string;
     backdrop_path: string;
 }
+
+export interface FavoritesData {
+    [userId: number]: FavoriteData
+}
+
+export interface FavoriteData {
+    [movieId: number]: [media_type: "tv" | "movie"]
+}
+
+export interface User {
+    userId: number;
+    name: string;
+    avatarId?: string;
+    imageUrl?: string;
+}
