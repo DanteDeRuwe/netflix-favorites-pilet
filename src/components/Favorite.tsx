@@ -12,7 +12,7 @@ const Favorite: React.FC<FavoriteProps> = props => {
 
     fetch(requestUrl)
       .then(response => response.json())
-      .then(data => setData(data))
+      .then(setData)
       .catch(console.error);
   };
 
@@ -22,7 +22,7 @@ const Favorite: React.FC<FavoriteProps> = props => {
 
   if (!data) return <></>;
 
-  const movieTileProps: MovieTileProps = createMovieTileProps(data, props);
+  const movieTileProps: MovieTileProps = createMovieTileProps(data);
   return <props.MovieTile key={props.id} {...movieTileProps}></props.MovieTile>;
 };
 
@@ -32,8 +32,8 @@ export default Favorite;
 Helpers
 */
 
-const createMovieTileProps = (title: ApiDataEntry, props: FavoriteProps) => ({
-  media_type: props.media_type,
+const createMovieTileProps = (title: ApiDataEntry) => ({
+  media_type: title.media_type,
   movieId: title.id,
   title: title.name || title.original_title,
   score: title.vote_average,

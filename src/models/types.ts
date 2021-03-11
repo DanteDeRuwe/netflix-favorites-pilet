@@ -9,6 +9,7 @@ export interface ApiDataEntry {
     vote_average: string;
     overview: string;
     backdrop_path: string;
+    media_type: "tv" | "movie";
 }
 
 export interface FavoritesData {
