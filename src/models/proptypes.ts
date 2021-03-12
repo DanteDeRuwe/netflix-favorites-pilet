@@ -18,4 +18,8 @@ export interface FavoriteProps extends FavoritesProps {
     media_type: 'tv' | 'movie';
 }
 
-export interface FavoriteToggleProps extends MovieTileProps { }
+export interface FavoriteToggleProps {
+    movieId: string;
+    media_type: 'tv' | 'movie';
+    full?: boolean;
+}
