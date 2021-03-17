@@ -20,7 +20,7 @@
     "path-to-regexp": "1.8.0",
     "piral-cli": "^1.0.0-pre.2137",
     "piral-cli-webpack": "^1.0.0-pre.2137",
-    "piral-tryout": "1.2.3",
+    "netflix-piral": "1.2.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-router": "5.2.0",
@@ -38,7 +38,7 @@
     "react-router-dom": "*",
     "tslib": "*",
     "path-to-regexp": "*",
-    "piral-tryout": "*"
+    "netflix-piral": "*"
   },
   "scripts": {
     "start": "pilet debug",
@@ -52,7 +52,7 @@
   ],
   "piral": {
     "comment": "Keep this section to use the Piral CLI.",
-    "name": "piral-tryout"
+    "name": "netflix-piral"
   },
   "peerModules": []
 }
